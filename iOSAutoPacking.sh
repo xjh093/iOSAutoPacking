@@ -16,31 +16,38 @@ echo "Please input file path...\n..."
 echo "File ends with .app...\n..."
 echo "It's in 'Products' of your project...\n..."
 echo "Drag it into terminal...\n..."
-echo "And then press Enter...\n..."
-read input
+echo "And then press Enter..."
 echo ".\n..\n..."
 echo "File path is:"
-echo "${input}"
+read input
 echo ".\n..\n..."
 
 # Create Payload folder.
-Payload=${input%/*}"/Payload"
+# %/* : is delete the last path component of 'input'
+echo "mkdir 'Payload' folder..."
+cd ${input%/*}
 mkdir Payload
-echo "Payload:${Payload}"
+echo ".\n..\n..."
 
 # Move file to Payload.
-cp -rf ${input} Payload 
+echo "copy file..."
+app_name=${input##*/} # Demo.app
+cp -rf ${app_name} Payload
+echo ".\n..\n..."
 
 # Zip Payload.
+echo "zip file..."
 zip -q -r Payload".zip" Payload
-
-# Remove Payload folder.
-#rm -rf Payload
+echo ".\n..\n..."
 
 # Rename 'zip' to 'ipa'.
-mv Payload".zip" Payload".ipa"
+echo "rename 'zip' to 'ipa'..."
+app_name=${app_name%.*}".ipa" # Demo.ipa
+mv Payload".zip" ${app_name} # Payload.zip -> Demo.ipa
+echo ".\n..\n..."
+
+rm -rf Payload
 
 echo "Done!!!"
-echo "Find the Payload.ipa file..."
-echo "It's it!"
-
+echo "Find the '${app_name}' file..."
+echo "It's it!\n"
