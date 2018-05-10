@@ -9,7 +9,8 @@ iOSAutoPacking shell & 自动打包脚本
 
 ### 2.Input file path
  ##### 2.1 Find the file ends with .app in 'Products' of your project.
- ##### 2.2 Drag it into terminal.
+ ##### 2.2 Show in Finder.
+ ##### 2.3 Drag it into terminal.
 
 ### 3.Wait
 
@@ -27,7 +28,8 @@ iOSAutoPacking shell & 自动打包脚本
 ### 2.输入打包文件路径
 
 ##### 2.1 在项目的'Products'文件夹中找到以.app结尾的文件。
-##### 2.2 拖入终端。
+##### 2.2 Show in Finder。
+##### 2.3 拖入终端。
 
 ### 3.等待
 
