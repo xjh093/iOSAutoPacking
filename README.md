@@ -34,3 +34,23 @@ iOSAutoPacking shell & 自动打包脚本
 ### 3.等待
 
 ### 4.找到以 'xxx.ipa' 的文件
+
+---
+
+# Command+B With Script
+
+Build Phases -> New Run Script Phases
+
+```
+if [ "${CONFIGURATION}" = "Debug" ] && [ -d "${BUILD_ROOT}/${CONFIGURATION}-iphoneos" ]
+then
+cd ${BUILD_ROOT}/${CONFIGURATION}-iphoneos
+rm -rf Output
+mkdir Payload
+mkdir Output
+cp -rf ${PROJECT_NAME}.app Payload/${PROJECT_NAME}.app
+zip -r Output/${PROJECT_NAME}.ipa Payload
+rm -rf Payload
+open ./Output
+fi
+```
