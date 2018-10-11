@@ -51,6 +51,8 @@ mkdir Output
 cp -rf ${PROJECT_NAME}.app Payload/${PROJECT_NAME}.app
 zip -r Output/${PROJECT_NAME}.ipa Payload
 rm -rf Payload
+cp -rf ${PROJECT_NAME}.app.dSYM Output/${PROJECT_NAME}.app.dSYM
+rm -rf ${PROJECT_NAME}.app.dSYM
 open ./Output
 fi
 ```
